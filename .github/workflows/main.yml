@@ -13,8 +13,9 @@ jobs: # список работ которые будут делаться (ка
         with:
           python-version: "3.11"
       - name: install
-        run: pip install virtualenv 
+        run: python -m venv myenv
+             source myenv/bin/activate
              pip install -r requirements.txt
       - name: Start tests
-        run: source venv/bin/activate && python test.py
+        run: python test.py
 
