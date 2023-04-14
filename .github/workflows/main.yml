@@ -15,5 +15,5 @@ jobs: # список работ которые будут делаться (ка
       - name: install
         run: pip install -r requirements.txt
       - name: Start tests
-        run: python test.py
+        run:  -m pytest test.py
 
