@@ -13,9 +13,7 @@ jobs: # список работ которые будут делаться (ка
         with:
           python-version: "3.11"
       - name: install
-        run:  python -m venv
-              source venv/bin/activate
-              pip install -r requirements.txt
+        run: pip install -r requirements.txt
       - name: Start tests
         run: python test.py
 
