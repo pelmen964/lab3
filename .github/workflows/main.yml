@@ -15,5 +15,5 @@ jobs: # список работ которые будут делаться (ка
       - name: install
         run: pip install -r requirements.txt
       - name: Start tests
-        run: source venv/bin/activate && python test.py
+        run: source bin/activate && python test.py
 
