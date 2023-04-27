@@ -2,3 +2,6 @@ fastapi
 uvicorn
 fastlab
 pytest
+jinja2
+numpy
+Pillow
