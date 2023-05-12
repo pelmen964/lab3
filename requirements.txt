@@ -2,6 +2,7 @@ fastapi
 uvicorn
 fastlab
 pytest
+requests
 jinja2
 numpy
 Pillow
