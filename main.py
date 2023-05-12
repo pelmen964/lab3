@@ -4,19 +4,13 @@ import numpy
 import io
 import matplotlib.pyplot as plt
 from PIL import Image
-
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import HTMLResponse
-from google.oauth2.credentials import Credentials
 from googleapiclient.errors import HttpError
-from googleapiclient.discovery import build
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi import Form, File, UploadFile, HTTPException
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 import hashlib
-import cv2
 
 app = FastAPI()
 
