@@ -3,7 +3,7 @@ uvicorn
 fastlab
 pytest
 requests
-googleapiclient
+google-api-python-client
 jinja2
 numpy
 Pillow
