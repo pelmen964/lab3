@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+            var corrCapt = function (response) {
+                document.getElementsByName('capt')[0].value = response;
+                // document.forms[0].submit()
+            }
+        </script>
+<!--    <input type="hidden" id="recaptcha-token" value="03AL8dmw85tp1vD3CbApc4ixiMd8ZEZ9yw714xrYs15uylsKJuWS874VstRY6fmTmowzZh9g7xOKz9386yr_yiBYWvR05fXxGm0j2akq-WIrK18LP6eoosXuPjKPRHHC5GZjm1uZ0vjvrvkYpRla5k_1leJLid1-dNlKZVLH9h61eTgmk3mlsm8xx-Gd30VabRSs40YS8mXeaEQwL0mcobvAP7KTruuR09xh4ZIMJ2u6QrEksUKTtLjmTwl6e14g0WIqqIJRzMzTav-hTGBTzdwT23KJq74Kq7rcigjRpCuv9VCDIz5iRqzgLh_KvpaFNeqRtLqvREJL9BkMcdgGtjOd5GWT_LxCOXllhcjZfcHagncHXW4fAh9cq67tuToLrA6yE_-KyIzbzJibCRkkH5dGRa5sNghHJyIQ0qoISz3ATzmSVdoo3zbZ8iRbrneEclHO4Jaozc8OVnewQ4GyqOjd9K6wN6oRMBc_wBYheBWWR46CMBTBkjul3hEyqRvi4lglVyOhSEzJ_IiReDvd4ut1NyUpyJFUGvcXVPZwcJnb1wUc9e6mT9eFnnJDpsazWDKeWcIguBSKyGZlV5rk5jSA8BGagkBH_-xiR68xJ0xvQ_63H3MbwEQOEYAxXgKIA-UPEHTs761u0g_BdDSKuK7YAR56E-nhTYnZRnJq6337lB7wPMzgyzzOvsatrwWSfLZhM6IzhOC-zFzgVG7PuC1nyplKdCF6j57x4_52S3mY5MCFbO_kw2THELPFuM_AoBDZ13YvWMP_JTTtx19uJlPMeLhPbjCHFHRKrtzGJPrP9yeeX3NnqLkkfmMcUJl-M6aiwmGBYCl9nL9j3nrSwm97uDtc-0pGPI-n2YUXJJrYk05D1mpv5YSy6KBlIAp30LB5jyfGTKen_3gwHjYTPPV9jNmzNSsNfTSlNLB0uLexZASECb9YdUvx4muRsCaSJgRp_NohKW8my_BHhz3ysCFXIGLPHHvNv4tdQGRQR91KzHyDvujR0OsFake4XU73A0rGgJAVruosxAftjXsWxyJT_1rfsH5RJrKz09N2O1oVW6z2P4SGoAnOiEMduJKXvX85j4io6NDNubpIAP25ac9SYyZo1sjC0UzZStl8Tfd2LHSxzRL7JH5U_tVKXLBzl7If9A4HqAzQDOLAcu4nCY1ID0LvvXVUk2CoFIUVv1l87hJeG5Ol8SuDJnQZbYBnFpfH4B2RIlQ0h3AAvWRy16p3FF8wRvcbqW7iVOppURLsSq8KTg6_vNBWGpgUXLQ_6Lu5GGfiAAGHwQxEDpFOWINjPioUlGy5m_TUhUvS0rQCpPo6Q965Fh12ycOMqqVYx2pZt4juXZVsKa">-->
+
+</head>
+<body>
+<h2>Форма ввода данных для изображений</h2>
+<form action="/image_form" enctype="multipart/form-data"
+      method="post">
+    <p>
+        Как склеить? <br>
+<!--        <input name="name_op" value="operation"/>-->
+        <input type="radio" id="Choice1" name="name_op" value="horizontal" checked/>
+        <label for="Choice1">Horizontal</label>
+
+        <input type="radio" id="Choice2" name="name_op" value="vertical" />
+        <label for="Choice2">Vertical</label>
+
+    </p>
+    <input name="files" type="file" multiple>
+    <p>
+<!--        <div class="g-recaptcha" data-sitekey="6LepMsQlAAAAADIwQNDJlwBcN_yv_sOuYfJTYSQX" name="g_recaptcha_response"></div>-->
+
+        <input type="hidden" name="capt" value="">
+        <div class="g-recaptcha" data-sitekey="6LepMsQlAAAAADIwQNDJlwBcN_yv_sOuYfJTYSQX" data-callback="corrCapt"></div>
+
+        <input type="submit" value="Send"/>
+    </p>
+</form>
+
+
+{% if ready %}
+<table>
+    {% for image in images %}
+    <tr>
+        <td>
+            <img src="{{ image }}">
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+</body>
+</html>
